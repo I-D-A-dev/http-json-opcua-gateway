@@ -36,3 +36,13 @@ JSONフラット化の自己テストを実行できます。
 ```powershell
 dotnet run -- --self-test
 ```
+
+## exe化
+
+Windows x64向けに、.NETランタイム込みの単一exeを作成できます。
+
+```powershell
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -o publish\win-x64
+```
+
+出力先は `publish\win-x64` です。`SensorHttpOpcUaGateway.exe` と同じフォルダにある `appsettings.json` を編集してから起動してください。
